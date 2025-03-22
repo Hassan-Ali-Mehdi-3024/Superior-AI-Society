@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Superior AI Society</title>
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-theme">
+
+  <!-- 
+    ***** IMPORTANT *****
+    At the beginning of every new screen/page,
+    remember to ask for the shared code snippets 
+    for buttons, forms, and images to ensure uniformity.
+  -->
+
+  <!-- =============================
+       THEME TOGGLE (Pure CSS)
+       ============================= -->
+  <!-- <input type="checkbox" id="theme-toggle" hidden />
+  <label for="theme-toggle" class="theme-toggle-label">
+   The label text or icon for light/dark theme switch
+    <span class="toggle-text">Light / Dark</span>
+  </label> -->
+
+  <!-- =============================
+       REGISTER POPUP TOGGLE
+       ============================= -->
+  <input type="checkbox" id="register-popup" hidden />
+  <label for="register-popup" class="register-popup-overlay"></label>
+  <div class="register-popup-form">
+    <label for="register-popup" class="close-register-popup">&times;</label>
+    <h2>Register for Superior AI Society</h2>
+    <form>
+      <!-- Replace these placeholders with your shared form code or unify them using your snippet -->
+      <label for="reg-name">Full Name</label>
+      <input type="text" id="reg-name" name="reg-name" placeholder="Enter your full name" required />
+
+      <label for="reg-email">Email</label>
+      <input type="email" id="reg-email" name="reg-email" placeholder="Enter your email" required />
+
+      <label for="reg-year">Year of Study</label>
+      <input type="text" id="reg-year" name="reg-year" placeholder="Enter your academic year" required />
+
+      <!-- Additional fields as needed -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- =============================
+       HEADER / NAVBAR
+       ============================= -->
+  <header>
+    <nav class="main-navbar">
+      <div class="nav-logo">
+        <!-- Replace this with your actual logo image code -->
+        <a href="#home">
+          <img src="assets/1080x1080.png" alt="Superior AI Society Logo" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <!--
+          The 'active-link' class can be moved to whichever
+          link corresponds to the current page/section
+        -->
+        <li><a href="#home" class="active-link">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+
+      <label for="register-popup" class="button">Register</label>
+    </nav>
+  </header>
+
+  <!-- =============================
+       MAIN CONTENT
+       ============================= -->
+  <main>
+    <!-- ---------- HOME SECTION ---------- -->
+    <section id="home" class="home-section">
+        <div class="home-content">
+            <h1>Welcome to the Superior AI Society</h1>
+            <hr class="small-line" />
+            <p>
+                A hub for AI enthusiasts at Superior University. Explore resources,
+                projects, and more with our vibrant community.
+            </p>
+            <button onclick="location.href='#about'" class="cta-btn">Learn More</button>
+        </div>
+    </section>
+
+    <!-- ---------- ABOUT SECTION ---------- -->
+    <section id="about" class="about-section">
+      <div class="hero-banner">
+        <h2>Discover Our Mission</h2>
+        <p>We strive to foster cutting-edge AI research, learning, and collaboration at Superior University.</p>
+      </div>
+      <div class="about-details">
+        <article class="about-card">
+          <h3>Mission</h3>
+          <p>To empower students with AI knowledge and hands-on experience.</p>
+        </article>
+        <article class="about-card">
+          <h3>Vision</h3>
+          <p>To lead groundbreaking AI innovations that shape our future.</p>
+        </article>
+        <article class="about-card">
+          <h3>Values</h3>
+          <p>Collaboration, Curiosity, and Community-driven learning.</p>
+        </article>
+      </div>
+
+      <div class="team-section">
+        <h2>Meet the Team</h2>
+        <p>Advisor, President, Vice President, General Secretary, Event Head, Marketing Head, Finance Head</p>
+        <p>
+          For past leadership and historical context, check
+          <a href="#past-teams">our archives</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ---------- LEARNING SECTION ---------- -->
+    <section id="learning" class="learning-section">
+      <h2>Learning Resources</h2>
+      <p>
+        Your gateway to structured AI knowledge. Dive into our curated links:
+      </p>
+      <div class="learning-grid">
+        <div class="learning-block">
+          <h3>PDF Resources</h3>
+          <ul>
+            <li><a href="#pdf1">Machine Learning Basics PDF</a></li>
+            <li><a href="#pdf2">Deep Learning Fundamentals PDF</a></li>
+          </ul>
+        </div>
+        <div class="learning-block">
+          <h3>Video Resources</h3>
+          <ul>
+            <li><a href="#video1">Neural Networks Crash Course</a></li>
+            <li><a href="#video2">AI Ethics Webinar</a></li>
+          </ul>
+        </div>
+        <div class="learning-block">
+          <h3>Roadmaps & Websites</h3>
+          <ul>
+            <li><a href="#roadmap1">AI Career Roadmap</a></li>
+            <li><a href="#website1">Top AI Learning Platform</a></li>
+          </ul>
+        </div>
+        <div class="learning-block">
+          <h3>Bots & AI Tools</h3>
+          <ul>
+            <li><a href="#tool1">Chatbot Builder</a></li>
+            <li><a href="#tool2">Automated ML Suite</a></li>
+          </ul>
+        </div>
+        <div class="learning-block">
+          <h3>Self-Learning Practice</h3>
+          <ul>
+            <li><a href="#quiz1">AI Quiz #1</a></li>
+            <li><a href="#quiz2">Machine Learning Trivia</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- PROJECTS SECTION ---------- -->
+    <section id="projects" class="projects-section">
+      <h2>Our Projects & Research</h2>
+      <div class="project-gallery">
+        <article class="project-card">
+          <h3>Project Title 1</h3>
+          <p>Short description of an AI innovation or research project.</p>
+          <a href="#readmore" class="project-link">Read More</a>
+        </article>
+        <article class="project-card">
+          <h3>Project Title 2</h3>
+          <p>Short description of an AI innovation or research project.</p>
+          <a href="#readmore" class="project-link">Read More</a>
+        </article>
+        <!-- Add more project cards as needed -->
+      </div>
+    </section>
+
+    <!-- ---------- BLOG SECTION ---------- -->
+    <section id="blog" class="blog-section">
+      <h2>Society Blog</h2>
+      <p>
+        Here you’ll find articles, news, and updates from our members.
+        <br/>
+        <em>Interested in contributing?</em> Reach out to
+        <a href="mailto:ai.society@superioruni.edu">ai.society@superioruni.edu</a>.
+      </p>
+      <div class="blog-list">
+        <article class="blog-post">
+          <h3>Sample Blog Post #1</h3>
+          <p>A short excerpt or introduction...</p>
+          <a href="#fullpost">Read Full Post</a>
+        </article>
+        <!-- Additional blog posts go here. 
+             Admin-only controls could be integrated later via JavaScript or a backend. -->
+      </div>
+    </section>
+  </main>
+
+  <!-- =============================
+       FOOTER
+       ============================= -->
+  <footer>
+    <p>&copy; <span id="year"></span> Superior AI Society, Superior University</p>
+  </footer>
+
+  <!-- 
+    Minimal inline script snippet to update footer year automatically (optional).
+    Since the requirement says “HTML & CSS only,” you can remove this or keep 
+    it as a harmless example of a tiny script that does not affect layout.
+  -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
