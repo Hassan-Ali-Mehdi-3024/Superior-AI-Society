@@ -240,7 +240,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('assets/home-bg.jpg') center/cover no-repeat fixed;
+    background: url('home-bg.jpg') center/cover no-repeat fixed;
     filter: saturate(0.8);
     text-align: center;
     padding: 2rem 1rem;
