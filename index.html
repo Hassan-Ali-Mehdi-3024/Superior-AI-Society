@@ -125,97 +125,116 @@
     </section>
 
     <section id="team" class="team-section">
-      <div class="team-header">
-        <h2>Meet Our Team</h2>
-        <p>Get to know the amazing people leading the Superior AI Society.</p>
-      </div>
+      <h2>Meet Our Team</h2>
+      <p>Focus on two members at a time as you navigate!</p>
     
-      <div class="team-container">
-        <!-- Team Member Card -->
-        <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="Advisor.png" alt="Advisor">
-            </div>
-            <div class="content">
-              <div class="heading">Dr. Jawad Ahmed</div>
-              <p>Advisor</p>
-            </div>
-          </div>
-        </div>
-          
-        <!-- Repeat for other team members -->
-        <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="President.png" alt="President">
-            </div>
-            <div class="content">
-              <div class="heading">Hassan Ali Mehdi</div>
-              <p>President</p>
-            </div>
-          </div>
-        </div>
-          
-        <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="Vice-President.png" alt="Vice President">
-            </div>
-            <div class="content">
-              <div class="heading">Qatadaha</div>
-              <p>Vice President</p>
-            </div>
-          </div>
-        </div>
+      <!-- Carousel Container with Arrows -->
+      <div class="carousel-wrapper">
+        <!-- Left Arrow -->
+        <button id="prevBtn" class="arrow neon-arrow">&#9664;</button>
         
-        <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="Secretary.png" alt="Secretary">
+        <!-- Visible window (mask) for the slides -->
+        <div class="carousel-viewport">
+          <!-- The slides container (will move left/right via translateX) -->
+          <div class="slides">
+            
+            <!-- Slide 1 -->
+            <div class="slide" data-index="0">
+              <div class="card-container">
+                <div class="card">
+                  <div class="img-content">
+                    <img src="Advisor.png" alt="Advisor">
+                  </div>
+                  <div class="content">
+                    <div class="heading">Dr. Jawad Ahmed</div>
+                    <p>Advisor</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="content">
-              <div class="heading">Danial Khalid</div>
-              <p>General Secretary</p>
+    
+            <!-- Slide 2 -->
+            <div class="slide" data-index="1">
+              <div class="card-container">
+                <div class="card">
+                  <div class="img-content">
+                    <img src="President.png" alt="President">
+                  </div>
+                  <div class="content">
+                    <div class="heading">Hassan Ali Mehdi</div>
+                    <p>President</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <!-- <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="treasurer.jpg" alt="Treasurer">
+    
+            <!-- Slide 3 -->
+            <div class="slide" data-index="2">
+              <div class="card-container">
+                <div class="card">
+                  <div class="img-content">
+                    <img src="Vice-President.png" alt="Vice President">
+                  </div>
+                  <div class="content">
+                    <div class="heading">Qatadaha</div>
+                    <p>Vice President</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="content">
-              <div class="heading">Umm ul Baneen</div>
-              <p>Finance Head</p>
+    
+            <!-- Slide 4 -->
+            <div class="slide" data-index="3">
+              <div class="card-container">
+                <div class="card">
+                  <div class="img-content">
+                    <img src="Secretary.png" alt="Secretary">
+                  </div>
+                  <div class="content">
+                    <div class="heading">Danial Khalid</div>
+                    <p>General Secretary</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div> -->
-        
-        <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="Event-Head.png" alt="Event Coordinator">
+    
+            <!-- Slide 5 -->
+            <div class="slide" data-index="4">
+              <div class="card-container">
+                <div class="card">
+                  <div class="img-content">
+                    <img src="Event-Head.png" alt="Event Head">
+                  </div>
+                  <div class="content">
+                    <div class="heading">Zainab Hamid</div>
+                    <p>Event Head</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="content">
-              <div class="heading">Zainab Hamid</div>
-              <p>Event Head</p>
+    
+            <!-- Slide 6 -->
+            <div class="slide" data-index="5">
+              <div class="card-container">
+                <div class="card">
+                  <div class="img-content">
+                    <img src="Marketer.png" alt="Marketing Head">
+                  </div>
+                  <div class="content">
+                    <div class="heading">Abdul Saboor</div>
+                    <p>Marketing Head</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="card-container">
-          <div class="card">
-            <div class="img-content">
-              <img src="Marketer.png" alt="Public Relations">
-            </div>
-            <div class="content">
-              <div class="heading">Abdul Saboor</div>
-              <p>Marketing Head</p>
-            </div>
-          </div>
-      </div>
+            
+            <!-- Add more slides if you have more members -->
+          </div><!-- .slides -->
+        </div><!-- .carousel-viewport -->
+    
+        <!-- Right Arrow -->
+        <button id="nextBtn" class="arrow neon-arrow">&#9654;</button>
+      </div><!-- .carousel-wrapper -->
     </section>
     
 
@@ -318,6 +337,67 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+<script>
+  // All .slide elements
+  const slides = document.querySelectorAll('.slide');
+  // We want two slides in the center at any time
+  let centerIndex = 0; // The first of the two center slides
+
+  // The container we translate horizontally
+  const slidesContainer = document.querySelector('.slides');
+
+  // The width (in px) of each .slide (including margin) 
+  // Must match the CSS exactly for a perfect alignment
+  const slideWidth = 220; // We'll define 200px card + 20px margin/gap in CSS
+  // Alternatively, measure dynamically: e.g. slides[0].getBoundingClientRect().width
+
+  function updateSlides() {
+    const total = slides.length;
+    
+    // The second center slide
+    const nextCenter = (centerIndex + 1) % total;
+
+    // 1. Highlight two center slides, scale them to 100%, others to 80%
+    slides.forEach((slide, i) => {
+      if (i === centerIndex || i === nextCenter) {
+        slide.style.transform = 'scale(1)';
+        slide.style.opacity = '1';
+        slide.style.zIndex = '2';
+      } else {
+        slide.style.transform = 'scale(0.8)';
+        slide.style.opacity = '0.8';
+        slide.style.zIndex = '1';
+      }
+    });
+
+    // 2. Move the .slides container so that the two center slides appear in the middle
+    // We'll shift by 'centerIndex * slideWidth' 
+    // so the slide at centerIndex moves left. 
+    // This puts [centerIndex, centerIndex+1] near center.
+    slidesContainer.style.transform = `translateX(${-centerIndex * slideWidth}px)`;
+  }
+
+  function showPrev() {
+    // Move backward by 1
+    centerIndex = (centerIndex - 1 + slides.length) % slides.length;
+    updateSlides();
+  }
+
+  function showNext() {
+    // Move forward by 1
+    centerIndex = (centerIndex + 1) % slides.length;
+    updateSlides();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', showPrev);
+  document.getElementById('nextBtn').addEventListener('click', showNext);
+
+  // Initial display
+  updateSlides();
+</script>
+
+
 
 </body>
 </html>

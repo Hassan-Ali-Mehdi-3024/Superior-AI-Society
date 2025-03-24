@@ -427,52 +427,102 @@ header {
     line-height: 1.5;
   }
 
-
-  .team-section {
-    padding: 4rem 1rem;
+/* =============================
+   TEAM SECTION CAROUSEL
+   ============================= */
+   .team-section {
+    width: 100%;
     min-height: 100vh;
+    padding: 4rem 1rem;
+    background: #05062d;
+    color: #f0f0f0;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #05062d; /* Matches your existing color theme */
-    color: #f0f0f0;
   }
   
-  .team-header {
-    margin-bottom: 3rem;
-  }
-  
-  .team-header h2 {
+  .team-section h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
   
-  .team-header p {
+  .team-section p {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
     line-height: 1.6;
     font-size: 1.1rem;
   }
   
-  .team-container {
+  /* The container for the entire slider (arrows + viewport) */
+  .carousel-wrapper {
     display: flex;
-    flex-direction: row;
-    gap: 30px;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
   }
   
+  /* The visible window that hides overflowing slides */
+  .carousel-viewport {
+    width: 440px; /* Enough to show two slides at once (2 * 220px) */
+    overflow: hidden;
+  }
+  
+  /* The container for all slides in a row */
+  .slides {
+    display: flex;
+    gap: 20px; /* This gap is part of the total width each slide occupies */
+    transition: transform 0.6s ease; 
+  }
+  
+  /* Each .slide is a single card 'slot' */
+  .slide {
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transform-origin: center center;
+    width: 200px; /* Card width */
+    margin-right: 20px; /* Part of the total 220px per slide */
+    /* The last slide won't necessarily need the margin, but it's simpler to keep it consistent */
+  }
+  
+  /* Arrows */
+  .arrow {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    outline: none;
+  }
+  
+  /* Neon arrow styling */
+  .neon-arrow {
+    color: #fff;
+    background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color 0.3s;
+  }
+  
+  .neon-arrow:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(151,65,252,0.8);
+  }
+  
+  /* ========== Card Styles ========== */
+  
+  /* Container that holds the card + neon glow effect */
   .card-container {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 240px;
     position: relative;
     border-radius: 10px;
+    perspective: 1000px; /* For possible 3D transformations */
   }
   
   .card-container::before {
-    content: "";
+    content: '';
     z-index: -1;
     position: absolute;
     inset: 0;
@@ -481,13 +531,16 @@ header {
     filter: blur(20px);
   }
   
+  /* Actual card box */
   .card {
     width: 100%;
     height: 100%;
     border-radius: inherit;
     overflow: hidden;
+    position: relative;
   }
   
+  /* Image area for each card */
   .card .img-content {
     width: 100%;
     height: 100%;
@@ -495,19 +548,19 @@ header {
     align-items: center;
     justify-content: center;
     background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
-    transition: scale 0.6s, rotate 0.6s, filter 1s;
+    transition: transform 0.6s, filter 1s;
   }
   
   .card .img-content img {
     width: 100%;
     height: 100%;
-    
     object-fit: cover;
   }
   
+  /* Text overlay on hover */
   .card .content {
     position: absolute;
-    top: 0;
+    top: 0; 
     left: 0;
     width: 100%;
     height: 100%;
@@ -523,20 +576,23 @@ header {
     pointer-events: none;
     transform: translateY(50px);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    text-align: center;
   }
   
   .card .content .heading {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 700;
   }
   
+  /* Reveal text overlay on hover */
   .card:hover .content {
     opacity: 1;
     transform: translateY(0);
   }
   
+  /* Enlarge & blur background image on hover */
   .card:hover .img-content {
-    scale: 2.5;
+    transform: scale(2.5);
     filter: blur(7px);
   }
   
