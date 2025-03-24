@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <!-- Link to your CSS file -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="dark-theme">
 
   <!-- 
@@ -82,22 +84,22 @@
   <main>
     <!-- ---------- HOME SECTION ---------- -->
     <section id="home" class="home-section">
-        <div class="home-content">
-            <h1>Welcome to the Superior AI Society</h1>
-            <hr class="small-line" />
-            <p>
-                A hub for AI enthusiasts at Superior University. Explore resources,
-                projects, and more with our vibrant community.
-            </p>
-            <button onclick="location.href='#about'" class="cta-btn">Learn More</button>
-        </div>
+      <div class="home-content">
+        <h1>Welcome to the Superior AI Society</h1>
+        <hr class="small-line" />
+        <p>
+          A hub for AI enthusiasts at Superior University. Explore resources,
+          projects, and more with our vibrant community.
+        </p>
+        <button onclick="location.href='#about'" class="cta-btn">Learn More</button>
+      </div>
     </section>
 
     <!-- ---------- ABOUT SECTION ---------- -->
     <section id="about" class="about-section">
       <div class="hero-banner">
-      <h2>Discover Our Mission</h2>
-      <p>We strive to foster cutting-edge AI research, learning, and collaboration at Superior University.</p>
+        <h2>Discover Our Mission</h2>
+        <p>We strive to foster cutting-edge AI research, learning, and collaboration at Superior University.</p>
       </div>
       <div class="mvv-details">
         <article class="mvv-card">
@@ -106,14 +108,14 @@
             <p>To empower students with AI knowledge and hands-on experience.</p>
           </div>
         </article>
-      
+
         <article class="mvv-card">
           <div class="mvv-card-content">
             <h3>Vision</h3>
             <p>To lead groundbreaking AI innovations that shape our future.</p>
           </div>
         </article>
-      
+
         <article class="mvv-card">
           <div class="mvv-card-content">
             <h3>Values</h3>
@@ -121,23 +123,21 @@
           </div>
         </article>
       </div>
-      
+
     </section>
 
     <section id="team" class="team-section">
       <h2>Meet Our Team</h2>
-      <p>Focus on two members at a time as you navigate!</p>
+      <p>Browse multiple members at a time with our neon slider!</p>
     
-      <!-- Carousel Container with Arrows -->
       <div class="carousel-wrapper">
         <!-- Left Arrow -->
         <button id="prevBtn" class="arrow neon-arrow">&#9664;</button>
-        
-        <!-- Visible window (mask) for the slides -->
+    
+        <!-- The "window" that shows multiple slides -->
         <div class="carousel-viewport">
-          <!-- The slides container (will move left/right via translateX) -->
+          <!-- Slides container that we'll translate in JS -->
           <div class="slides">
-            
             <!-- Slide 1 -->
             <div class="slide" data-index="0">
               <div class="card-container">
@@ -227,8 +227,6 @@
                 </div>
               </div>
             </div>
-            
-            <!-- Add more slides if you have more members -->
           </div><!-- .slides -->
         </div><!-- .carousel-viewport -->
     
@@ -236,7 +234,6 @@
         <button id="nextBtn" class="arrow neon-arrow">&#9654;</button>
       </div><!-- .carousel-wrapper -->
     </section>
-    
 
     <!-- ---------- LEARNING SECTION ---------- -->
     <section id="learning" class="learning-section">
@@ -306,7 +303,7 @@
       <h2>Society Blog</h2>
       <p>
         Here you’ll find articles, news, and updates from our members.
-        <br/>
+        <br />
         <em>Interested in contributing?</em> Reach out to
         <a href="mailto:ai.society@superioruni.edu">ai.society@superioruni.edu</a>.
       </p>
@@ -337,67 +334,58 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 <script>
-  // All .slide elements
-  const slides = document.querySelectorAll('.slide');
-  // We want two slides in the center at any time
-  let centerIndex = 0; // The first of the two center slides
-
-  // The container we translate horizontally
+  // The container with all .slide elements
   const slidesContainer = document.querySelector('.slides');
+  // Buttons
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-  // The width (in px) of each .slide (including margin) 
-  // Must match the CSS exactly for a perfect alignment
-  const slideWidth = 220; // We'll define 200px card + 20px margin/gap in CSS
-  // Alternatively, measure dynamically: e.g. slides[0].getBoundingClientRect().width
+  // Each slide is effectively 220px wide: width:200 + margin-right:20 (or slides gap)
+  const slideWidth = 220;
 
-  function updateSlides() {
-    const total = slides.length;
-    
-    // The second center slide
-    const nextCenter = (centerIndex + 1) % total;
-
-    // 1. Highlight two center slides, scale them to 100%, others to 80%
-    slides.forEach((slide, i) => {
-      if (i === centerIndex || i === nextCenter) {
-        slide.style.transform = 'scale(1)';
-        slide.style.opacity = '1';
-        slide.style.zIndex = '2';
-      } else {
-        slide.style.transform = 'scale(0.8)';
-        slide.style.opacity = '0.8';
-        slide.style.zIndex = '1';
-      }
-    });
-
-    // 2. Move the .slides container so that the two center slides appear in the middle
-    // We'll shift by 'centerIndex * slideWidth' 
-    // so the slide at centerIndex moves left. 
-    // This puts [centerIndex, centerIndex+1] near center.
-    slidesContainer.style.transform = `translateX(${-centerIndex * slideWidth}px)`;
-  }
-
-  function showPrev() {
-    // Move backward by 1
-    centerIndex = (centerIndex - 1 + slides.length) % slides.length;
-    updateSlides();
-  }
-
+  // ----- NEXT BUTTON -----
   function showNext() {
-    // Move forward by 1
-    centerIndex = (centerIndex + 1) % slides.length;
-    updateSlides();
+    slidesContainer.style.transition = 'transform 0.3s ease-in-out';
+    slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
+
+    // After animation ends, reorder first slide to the end
+    slidesContainer.addEventListener('transitionend', handleNextTransition, { once: true });
   }
 
-  document.getElementById('prevBtn').addEventListener('click', showPrev);
-  document.getElementById('nextBtn').addEventListener('click', showNext);
+  function handleNextTransition() {
+    // Move the first .slide to the end
+    const firstSlide = slidesContainer.firstElementChild;
+    slidesContainer.appendChild(firstSlide);
 
-  // Initial display
-  updateSlides();
+    // Instantly reset transform to 0 so there's no visible jump
+    slidesContainer.style.transition = 'none';
+    slidesContainer.style.transform = 'translateX(0)';
+  }
+
+  // ----- PREV BUTTON -----
+  function showPrev() {
+    // Immediately move last .slide to the front
+    const lastSlide = slidesContainer.lastElementChild;
+    slidesContainer.insertBefore(lastSlide, slidesContainer.firstElementChild);
+
+    // Put the container at -220px (no transition)
+    slidesContainer.style.transition = 'none';
+    slidesContainer.style.transform = `translateX(-${slideWidth}px)`;
+
+    // Force a layout reflow so browser registers the new transform
+    void slidesContainer.offsetWidth;
+
+    // Animate from -220px back to 0
+    slidesContainer.style.transition = 'transform 0.3s ease-in-out';
+    slidesContainer.style.transform = 'translateX(0)';
+  }
+
+  // Hook up the arrows
+  nextBtn.addEventListener('click', showNext);
+  prevBtn.addEventListener('click', showPrev);
 </script>
 
-
-
 </body>
+
 </html>
